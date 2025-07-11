@@ -17,7 +17,12 @@ class HumanPlayer extends Player {
     super(name, result);
   }
   rollDice() {
-    prompt("Enter 'go' to roll the dice: ").toLowerCase();
+    let input = prompt("Enter 'go' to roll the dice: ").toLowerCase();
+
+    while (input !== "go") {
+      input = prompt("Please only type 'go' to roll: ").toLowerCase();
+    }
+
     let result = Math.floor(Math.random() * 6) + 1;
     this.result = result;
     console.log(`${this.name} has rolled ${this.result}`);
@@ -30,8 +35,7 @@ class ComputerPlayer extends Player {
   }
 
   computerRoll() {
-    console.log(`it is now ${this.name}'s Turn`);
-    console.log(`${this.name} is now Rolling`);
+    console.log(`${this.name} is now rolling`);
   }
   rollDice() {
     let result = Math.floor(Math.random() * 6) + 1;
@@ -51,15 +55,15 @@ class Game {
     const human = humanPlayer.result;
     const computer = computerPlayer.result;
     if (human === computer) {
-      console.log("Game has ended in a Draw");
+      console.log("It's a draw!");
       return "draw";
     } else if (human > computer) {
       this.humanScore++;
-      console.log("Player wins");
+      console.log("Congrats, you win!");
       return humanPlayer.name;
     } else {
       this.computerScore++;
-      console.log("Sorry, Computer Wins");
+      console.log("Sorry, Computer wins!");
       return computerPlayer.name;
     }
   }
@@ -70,7 +74,7 @@ class Game {
     );
 
     while (!["1", "2", "3"].includes(rounds)) {
-      prompt("Please enter only 1, 2 or 3: ");
+      rounds = prompt("Please enter only 1, 2 or 3: ");
     }
 
     if (rounds === "1") {
@@ -110,23 +114,23 @@ class Game {
     const newGameChoices = ["yes", "y", "no", "n"];
     while (!newGameChoices.includes(restartGame)) {
       restartGame = prompt(
-        "invalid choice, please type yes or no: "
+        "Invalid choice, please type yes or no: "
       ).toLowerCase();
     }
     if (restartGame === "yes" || restartGame === "y") {
       playGame();
     } else if (restartGame === "no" || restartGame === "n") {
-      console.log("Whatevs, bruv. See ya!");
+      console.log("Okay, see ya!");
       process.exit();
     }
   }
 }
 
+// Uncomment the below to play the game:
 const human = new HumanPlayer();
 human.introduce();
 
 const computer = new ComputerPlayer();
-
 
 function playGame() {
   const game = new Game(0, 0, "");
@@ -135,3 +139,9 @@ function playGame() {
 
 // Start the game
 playGame();
+
+module.exports = {
+  Player,
+  HumanPlayer,
+  ComputerPlayer,
+};
