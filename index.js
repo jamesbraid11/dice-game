@@ -66,11 +66,11 @@ class Game {
 
   play() {
     let rounds = prompt(
-      "Please Choose How many Rounds you would like to Play 1 , 2 or 3: "
+      "Please choose how many rounds you would like to play - 1, 2 or 3: "
     );
 
     while (!["1", "2", "3"].includes(rounds)) {
-      prompt("Please enter 1, 2 or 3 ");
+      prompt("Please enter only 1, 2 or 3: ");
     }
 
     if (rounds === "1") {
@@ -93,20 +93,40 @@ class Game {
     console.log("Final Score:");
     console.log(`Player: ${this.humanScore}\nComputer: ${this.computerScore}`);
     if (this.humanScore > this.computerScore) {
-        console.log("//////////////// \nCongrats bruh, you win!\n////////////////");
+      console.log(
+        "//////////////// \nCongrats friend, you win!\n////////////////"
+      );
     } else if (this.humanScore < this.computerScore) {
-        console.log("//////////////// \nUnlucky bruh, Computer wins!\n////////////////");
+      console.log(
+        "//////////////// \nUnlucky friend, Computer wins!\n////////////////"
+      );
     } else {
-        console.log("//////////////// \nIt's a draw!\n////////////////");
+      console.log("//////////////// \nIt's a draw!\n////////////////");
+    }
+
+    let restartGame = prompt(
+      "Would you like to play again? (yes / no): "
+    ).toLowerCase();
+    const newGameChoices = ["yes", "y", "no", "n"];
+    while (!newGameChoices.includes(restartGame)) {
+      restartGame = prompt(
+        "invalid choice, please type yes or no: "
+      ).toLowerCase();
+    }
+    if (restartGame === "yes" || restartGame === "y") {
+      playGame();
+    } else if (restartGame === "no" || restartGame === "n") {
+      console.log("Whatevs, bruv. See ya!");
+      process.exit();
     }
   }
 }
 
 const human = new HumanPlayer();
 human.introduce();
-// human.rollDice();
+
 const computer = new ComputerPlayer();
-// computer.rollDice();
+
 
 function playGame() {
   const game = new Game(0, 0, "");
@@ -114,4 +134,4 @@ function playGame() {
 }
 
 // Start the game
-playGame()
+playGame();
