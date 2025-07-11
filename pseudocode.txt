@@ -1,0 +1,47 @@
+// Instantiate a Player Class
+// Attributes - name, result
+
+// Instantiate a HumanPlayer Class - subclass of Player
+// Add roll dice function and set result to result attribute
+
+// Instantiate a ComputerPlayer Class - subclass of Player
+// Add roll dice function and set result to result attribute
+
+// Instantiate a Game Class
+// Attributes - humanScore, computerScore, rounds
+
+// Determine winner function
+// IF player result = computer result - draw
+// IF player result > computer result - player wins, add 1 to humanScore
+// ELSE computer wins, add 1 to computerScore
+
+// play function
+// prompt user to select number of rounds, set to this.rounds
+
+// Start a FOR loop where i is less than this.rounds
+// Call human roll dice function
+// Call computer roll dice function
+// Console logs to tell player what each result was
+// Create winner variable that calls determine winner function with human and computer results as arguments
+// Console logs to tell player if a draw or who has won using IF statement
+
+// Console log final human and computer scores
+// Use an IF statement to tell user who has won the game overall or if it was a draw
+
+// Create a restartGame variable
+// Prompt user to type yes or no
+// IF user types yes, call playGame function
+// ELSE console log a message saying goodbye and exit function
+
+// Outside of Game Class now, set up playGame function
+// create new object using Game Class called game with starting arguments
+// call the play function with the game object
+
+// Call playGame function to start game
+
+
+
+
+
+// Stretch goals:
+// User can choose whether to play another user or computer
