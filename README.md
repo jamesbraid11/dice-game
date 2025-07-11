@@ -8,7 +8,7 @@
 
 ~~~
 How to Run the Game:
-    - git clone Repo
+    - fork repo
     - npm i 
     - Download live Preview (optional for FrontEnd Version) and click on Go Live at the bottom hand side
     - run node index.js
