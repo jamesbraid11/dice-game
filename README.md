@@ -2,14 +2,18 @@
 
 
 ![Dice image](assets/Dice_Red.png)
+
 ### Outline
- <p> This is a Dice Game where  a player will roll a Dice and the Computer will also roll a Dice and whoever has the highest score will Win</p>
+This is a Dice Game where you will roll a dice against the computer for 1-3 rounds. Who will be victorious?
 
-
+### How to run the game:
+- Fork repo
+- In the terminal, run:
 ~~~
-How to Run the Game:
-    - fork repo
-    - npm i 
-    - Download live Preview (optional for FrontEnd Version) and click on Go Live at the bottom hand side
-    - run node index.js
-    - Follow instructions on the Terminal and enjoy the Game :smile:
+npm i
+~~~
+- In the terminal, run:
+~~~
+node index.js
+~~~
+- Follow the instructions in the terminal and enjoy the game!
